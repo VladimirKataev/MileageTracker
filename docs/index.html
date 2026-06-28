@@ -1,3 +1,38 @@
-<html>
-<body> Tracking the mileages</body>
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <title>Mileage Tracker</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <h1>Mileage tracker</h1>
+    <form>
+        <fieldset>
+        <legend>Enter Date, Fuel Consumed, Distance Travelled, Odometer</legend>
+        <p>
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+        </p>
+        <p>
+            <label for="fuelConsumed">Fuel Consumed</label>
+            <input type="number" id="fuelConsumed" required />
+        </p>
+        <p>
+            <label for="distanceTravelled">Trip Distance</label>
+            <input type="number" id="distanceTravelled" required />
+        </p>
+        <p>
+            <label for="odometer">Total Odometrage</label>
+            <input type="number" id="odometer" />
+        </p>
+        </fieldset>
+        <p>
+            <button type="submit">Record</button>
+        </p>
+    </form>
+    <section id="tripRecords"></section>
+    <script src="app.js" defer></script>
+    </body>
 </html>
