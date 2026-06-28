@@ -17,22 +17,22 @@
         </p>
         <p>
             <label for="fuelConsumed">Fuel Consumed</label>
-            <input type="number" id="fuelConsumed" required />
+            <input type="number" id="fuelConsumed" required step="0.1" min="0"/>
         </p>
         <p>
             <label for="distanceTravelled">Trip Distance</label>
-            <input type="number" id="distanceTravelled" required />
+            <input type="number" id="distanceTravelled" required step="0.1" min="0"/>
         </p>
         <p>
             <label for="odometer">Total Odometrage</label>
-            <input type="number" id="odometer" />
+            <input type="number" id="odometer" step="0.1" min="0"/>
         </p>
         </fieldset>
         <p>
             <button type="submit">Record</button>
         </p>
     </form>
-    <section id="tripRecords"></section>
+    <section id="pastTrips"></section>
     <script src="app.js" defer></script>
     </body>
 </html>
