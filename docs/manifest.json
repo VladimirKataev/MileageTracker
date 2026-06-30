@@ -1,0 +1,12 @@
+{
+    "short_name": "MPG-Track",
+    "start_url": "./",
+    "description" : "Tracks MPG history, used for Full Fuel Refills. Works entirely offline.",
+    "icons": [
+        {
+        "src": "icons/icon-512.png",
+        "sizes": "512x512"
+        }
+        ],
+    "display": "standalone"
+}
