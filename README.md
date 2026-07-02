@@ -8,14 +8,14 @@ FEATURES:
 - Track:
   - trip distance (between fuel stops)
   - Refuel dates
+  - Fuel cost
+  - Miles/Gallon
+  - Cents/Mile
 
 TO-DO:
 - csv export
 - Track:
   - Odometer match (to see discrepancies)
-  - Fuel cost
-  - Miles/Gallon
-  - Cents/Mile
   - multiple cars
 
 This is mostly a similar implementation to [Mozilla's cycleTracker](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/CycleTracker)
