@@ -35,7 +35,6 @@ newTripFormEl.addEventListener("submit", (event) => {
 });
 
 function checkDatesInvalid(date) {
-  // Check that end date is after start date and neither is null.
   if (!date) {
     // To make the validation robust we could:
     // 1. add error messaging based on error type
@@ -99,9 +98,14 @@ function renderPastTrips() {
 
     // Loop over all periods and render them.
     trips.forEach((trip) => {
-        const tripEl = document.createElement("li");
-        tripEl.textContent = `${formatDate(trip.date)} : ${trip.fuel} Gallons, ${trip.distance} Miles, ${trip.cost} cents`;
-        pastTripsList.appendChild(tripEl);
+        const firstLineEl = document.createElement("li");
+        const secondLineEl = document.createElement("li")
+        const firstString = `${formatDate(trip.date)} : ${trip.fuel} Gallons, ${trip.distance} Miles, ${trip.cost} cents`;
+        const secondString = `----${(trip.distance / trip.fuel).toFixed(2)}MPG, ${(trip.cost / trip.distance).toFixed(2)}¢/M`;
+        firstLineEl.textContent = firstString;
+        secondLineEl.textContent = secondString;
+        pastTripsList.appendChild(firstLineEl);
+        pastTripsList.appendChild(secondLineEl);
     });
 
     pastTripsContainer.appendChild(pastTripsHeader);
