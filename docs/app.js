@@ -2,6 +2,7 @@ const newTripFormEl = document.getElementsByTagName("form")[0];
 const dateInputEl = document.getElementById("date");
 const fuelInputEl = document.getElementById("fuelConsumed");
 const distanceInputEl = document.getElementById("distanceTravelled");
+const costInputEl = document.getElementById("fuelCost");
 const STORAGE_KEY = "mileageTracker";
 const pastTripsContainer = document.getElementById("pastTrips");
 
@@ -15,6 +16,7 @@ newTripFormEl.addEventListener("submit", (event) => {
     const date = dateInputEl.value;
     const fuel = fuelInputEl.value;
     const distance = distanceInputEl.value;
+    const cost = costInputEl.value;
 
     // Check if the dates are invalid
     if (checkDatesInvalid(date)) {
@@ -23,7 +25,7 @@ newTripFormEl.addEventListener("submit", (event) => {
     }
 
     // Store the new trip in our client-side storage.
-    storeTrip(date, fuel, distance);
+    storeTrip(date, fuel, distance, cost);
 
     // Refresh the UI.
     renderPastTrips();
@@ -49,12 +51,12 @@ function checkDatesInvalid(date) {
   return false;
 }
 
-function storeTrip(date, fuel, distance) {
+function storeTrip(date, fuel, distance, cost) {
     // Get data from storage.
     const trips = getAllStoredTrips();
 
     // Add the new trip object to the end of the array
-    trips.push({date, fuel, distance});
+    trips.push({date, fuel, distance, cost});
 
     // Sort the array so that periods are ordered by date, from newest
     // to oldest.
@@ -98,7 +100,7 @@ function renderPastTrips() {
     // Loop over all periods and render them.
     trips.forEach((trip) => {
         const tripEl = document.createElement("li");
-        tripEl.textContent = `${formatDate(trip.date)} : ${trip.fuel} Gallons, ${trip.distance} Miles`;
+        tripEl.textContent = `${formatDate(trip.date)} : ${trip.fuel} Gallons, ${trip.distance} Miles, ${trip.cost} cents`;
         pastTripsList.appendChild(tripEl);
     });
 
