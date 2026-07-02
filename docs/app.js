@@ -117,9 +117,3 @@ function formatDate(dateString) {
 
 // Start the app by rendering the past trips.
 renderPastTrips();
-
-if ("serviceWorker" in navigator) {
-  // Register the app's service worker
-  // Passing the filename where that worker is defined.
-  navigator.serviceWorker.register("sw.js");
-}
