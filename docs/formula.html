@@ -22,17 +22,32 @@
             <mtr> <mtd> <msub><mtext>F</mtext><mtext>cost</mtext></msub>(v) = <!-- Fcost(speed) = pd/v + F(money) | explained -->
                     <mfrac><mtext>pd</mtext> <mtext>v</mtext></mfrac> +
                     <msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub>  <msup> (<mfrac> <mtext>v</mtext> <msub> <mtext>V</mtext> <mtext>ref</mtext></msub> </mfrac>) <mtext>2</mtext></msup>  </mtd>
-                    <mtd><mtext> Where E is money/volume(gal), E is consumption  under a test run (volume / distance), and Vref is distance/time for a test run </mtext>  </mtd> </mtr>
+                    <mtd><mtext> Where C is money/volume(gal), E is consumption  under a test run (volume / distance), and Vref is distance/time for a test run </mtext>  </mtd> </mtr>
             <mtr> <mtd> <msub><mtext>F</mtext><mtext>cost</mtext></msub>(v) = <!-- Fcost(speed) = pd/v + CEVV/(VrVr)| explained -->
                     <mtext>pd</mtext> <msup><mtext>v</mtext> <mtext>-1</msup> +
                     <msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub> <msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>-2</mtext></msup> <msup><mtext>v</mtext><mtext>2</mtext></msup>  </mtd>
-                    <mtd><mtext> Where E is money/volume(gal), E is consumption  under a test run (volume / distance), and Vref is distance/time for a test run </mtext>  </mtd> </mtr>
+                    <mtd><mtext> Adjust from fractions to exponents, makes calculus easier </mtext>  </mtd> </mtr>
             <mtr> <mtd>  <msubsup><mtext>F</mtext><mtext>cost</mtext><mtext>'</mtext></msubsup>(v) = 0 </mtd><mtd><mtext> Now this is an optimization problem, somewhere between too slow and too fast is the answer </mtext>  </mtd> </mtr>
-            <mtr> <mtd> <msubsup><mtext>F</mtext><mtext>cost</mtext><mtext>'</mtext></msubsup>(v) = <!-- Fcost(speed)` = pd/v + F(money) | explained -->
+            <mtr> <mtd> <msubsup><mtext>F</mtext><mtext>cost</mtext><mtext>'</mtext></msubsup>(v) = <!-- taking the derivative: -->
                     <mtext>-pd</mtext> <msup><mtext>v</mtext> <mtext>-2</msup> + 2
                     <msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub> <msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>-2</mtext></msup> <mtext>v</mtext> = 0  </mtd>
                     <mtd><mtext> Where E is money/volume(gal), E is consumption  under a test run (volume / distance), and Vref is distance/time for a test run </mtext>  </mtd> </mtr>
+            <mtr> <mtd> <msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub> <msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>-2</mtext></msup> <mtext>v</mtext> = <!-- Finding v: -->
+                    <mtext>pd</mtext> <msup><mtext>v</mtext> <mtext>-2</mtext></msup></mtd>
+                    <mtd><mtext>Add pd/(vv) to both </mtext>  </mtd> </mtr>
+            <mtr> <mtd> <msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub> <msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>-2</mtext></msup><msup><mtext>v</mtext> <mtext>3</mtext></msup> = <!-- Finding v: -->
+                    <mtext>pd</mtext></mtd>
+                    <mtd><mtext> multiply both by v^2 </mtext></mtd> </mtr>
+            <mtr> <mtd> <msup><mtext>v</mtext> <mtext>3</mtext></msup> = <!-- Finding v: -->
+                pd<msubsup><mtext>v</mtext><mtext>ref</mtext><mtext>2</mtext></msubsup> <msubsup><mtext>C</mtext><mtext>volume</mtext><mtext>-1</mtext></msubsup><msubsup><mtext>E</mtext><mtext>ref</mtext><mtext>-1</mtext></msubsup> </mtd>
+                <mtd> </mtd></mtr>
+            <mtr> <mtd> v = <!-- Finding v: -->
+                pd<msubsup><mtext>v</mtext><mtext>ref</mtext><mtext>2</mtext></msubsup> <msubsup><mtext>C</mtext><mtext>volume</mtext><mtext>-1</mtext></msubsup><msubsup><mtext>E</mtext><mtext>ref</mtext><mtext>-1</mtext></msubsup> </mtd>
+                <mtd> </mtd></mtr>
 
+            <mtr> <mtd> v = <!-- Finding v: -->
+                    <mroot><mfrac><mtext>pd<msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>2</mtext></msup></mtext> <mtext><msub><mtext>C</mtext><mtext>volume</mtext></msub> <msub><mtext>E</mtext><mtext>ref</mtext></msub> <msup><msub><mtext>v</mtext><mtext>ref</mtext></msub><mtext>-2</mtext></msup> </mtext></mfrac> <mtext>3</mtext></mroot></mtd>
+                    <mtd><mtext> Adjust negative exponent in denominator for Vreference </mtext></mtd> </mtr>
         </mtable></math>
     </body>
 </html>
