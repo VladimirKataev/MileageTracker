@@ -48,6 +48,33 @@
             <mtr><mtd>  <msup><mi>v</mi> <mi>3</mi></msup> =  <mfrac><mi>Distance</mi><mi>2Volume</mi></mfrac><msubsup><mi>V</mi><mi>ref</mi><mn>2</mn></msubsup> p <msubsup><mi>C</mi><mi>volume</mi><mi>-1</mi></msubsup>
                 </mtd> </mtr>
             <mtr><mtd><mtext>Intuitively, for faster: </mtext></mtd><mtd><mtext> More mpg, more expensive time, Efficiency at higher speed in test run, and cheap gas</mtext></mtd></mtr>
-            </mtable></math>
+            </mtable>
+        </math>
+
+        <form>
+            <fieldset>
+            <legend>Enter Reference efficiency, Reference speed, Cost for fuel volume, and cost of your time </legend>
+            <p>
+                <label for="efficiency">Reference Miles / Gallon</label>
+                <input type="number" id="efficiency" required step="0.1" min="0"/>
+            </p>
+            <p>
+                <label for="baseSpeed">Reference speed</label>
+                <input type="number" id="baseSpeed" required step="1" min="0"/>
+            </p>
+            <p>
+                <label for="volumeCost">Cost / Gallon</label>
+                <input type="number" id="volumeCost" required step="0.01" min="0"/>
+            </p>
+            <p>
+                <label for="timeCost">Time Cost (cents)</label>
+                <input type="number" id="timeCost" required step="0.01" min="0"/>
+            </p>
+            </fieldset>
+            <p>
+                <button type="submit">Calculate</button>
+            </p>
+        </form>
+
     </body>
 </html>
