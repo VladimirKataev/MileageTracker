@@ -18,3 +18,10 @@ legend {
   padding: 0.2em 0.5em;
   background-color: #ccffcc;
 }
+mtd, mtr{
+  text-align: left;
+}
+mtable{
+  margin-left:0;
+  margin-right: auto;
+}

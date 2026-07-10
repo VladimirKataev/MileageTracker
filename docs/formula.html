@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <title>Mileage Tracker</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="manifest" href="manifest.json" />
+        <link rel="icon" href="icons/icon-512.png" />
+    </head>
+    <body>
+        <h1>Gas optimization optimization</h1>
+        <h2><a href="index.html">Mileage tracker</a></h2>
+        <math display="block"><mtable>
+            <mtr> <mtd>
+                <msub><mi>F</mi><mi>cost</mi></msub><mi>(v)</mi> = <msub><mi>F</mi><mi>speedCost</mi></msub><mi>(v)</mi> <mo>+</mo> <msub><mi>F</mi><mi>fuelCost</mi></msub><mi>(v)</mi></mtd> 
+                <mtd> <mtext>Slow costs time and money, fast costs money</mtext></mtd></mtr>
+            <mtr> <mtd>
+                <msub><mi>F</mi><mi>cost</mi></msub><mi>(v)</mi> = P<mfrac><mi>d</mi><mi>v</mi></mfrac> <mo>+</mo> <msub><mi>F</mi><mi>fuelCost</mi></msub><mi>(v)</mi></mtd> 
+                <mtd> <mtext>P is cost-per-time, d is distance, v is distance-per-time</mtext></mtd></mtr>
+            <mtr> <mtd>
+                <msub><mi>F</mi><mi>cost</mi></msub><mi>(v)</mi> = P<mfrac><mi>d</mi><mi>v</mi></mfrac> <mo>+</mo> d <msub><mi>C</mi><mtext>dist</mtext></msub>(v)</mtd> 
+                <mtd> <mtext>d is distance, C is cost/distance, as a function of speed</mtext></mtd></mtr>
+            <mtr><mtd><msub><mi>C</mi><mi>dist</mi></msub>(v) = <msub><mi>C</mi><mi>ref</mi></msub> <msup> <mfrac> <mi>v</mi> <msub><mi>V</mi><mi>ref</mi></msub> </mfrac> <mi>2</mi></msup> = 
+                <msub><mi>C</mi><mi>ref</mi></msub> <msup><mi>v</mi><mi>2</mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup> </mtd>
+                <mtd><mtext>Using a reference run, drag is quadratic w.r.t speed</mtext></mtd>
+                </mtr>                
+            <mtr><mtd> <msub><mi>C</mi><mi>ref</mi></msub> = <msub><mi>C</mi><mi>volume</mi></msub> <mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac> </mtd> <mtd><mtext>Math regarding original numbers; C is the cost for unit volume</mtext></mtd>
+                </mtr>                
+            <mtr><mtd> <msub><mi>C</mi><mi>dist</mi></msub> = <msub><mi>C</mi><mi>volume</mi></msub> <mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac><msup><mi>v</mi><mi>2</mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup> </mtd>
+                <mtd><mtext>Substituting into the former. </mtext></mtd>
+                </mtr>
+            <mtr> <mtd>
+                <msub><mi>F</mi><mi>cost</mi></msub><mi>(v)</mi> = P<mfrac><mi>d</mi><mi>v</mi></mfrac> <mo>+</mo> d <msub><mi>C</mi><mi>volume</mi></msub><mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac><msup><mi>v</mi><mi>2</mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup></mtd> 
+                <mtd> <mtext>d is distance, C is cost/distance, as a function of speed</mtext></mtd></mtr>
+            <mtr><mtd> <mfrac><mi>d</mi><mi>dv</mi></mfrac> <msub><mi>F</mi><mi>cost</mi></msub><mi>(v)</mi> = -pd<msup><mi>v</mi><mi>-2</mi></msup>
+                + 2 d <msub><mi>C</mi><mi>volume</mi></msub><mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac><msup><mi>v</mi><mi></mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup> = 0
+                </mtd> <mtd>This is an optimization problem, not too fast or too slow</mtd></mtr>
+            <mtr><mtd> p<msup><mi>v</mi><mi>-2</mi></msup> = 2<msub><mi>C</mi><mi>volume</mi></msub><mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac><msup><mi>v</mi><mi></mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup>
+                </mtd>
+                <mtd>Move between sides, divide both by d</mtd></mtr>
+            <mtr><mtd> p = 2<msub><mi>C</mi><mi>volume</mi></msub><mfrac> <mi>Volume</mi><mi>Distance</mi></mfrac><msup><mi>v</mi><mi>3</mi></msup> <msubsup><mi>V</mi><mi>ref</mi><mn>-2</mn></msubsup>
+                </mtd>
+                <mtd><mtext>Multiply both by </mtext><msup><mi>v</mi><mn>2</mn></msup></mtd></mtr>
+            <mtr><mtd> <mfrac><mi>Distance</mi><mi>2Volume</mi></mfrac><msubsup><mi>V</mi><mi>ref</mi><mn>2</mn></msubsup> p <msubsup><mi>C</mi><mi>volume</mi><mi>-1</mi></msubsup>= <msup><mi>v</mi><mi>3</mi></msup>
+                </mtd>
+                <mtd><mtext> Reorder the variables</mtext></mtd></mtr>
+            <mtr><mtd>  <msup><mi>v</mi> <mi>3</mi></msup> =  <mfrac><mi>Distance</mi><mi>2Volume</mi></mfrac><msubsup><mi>V</mi><mi>ref</mi><mn>2</mn></msubsup> p <msubsup><mi>C</mi><mi>volume</mi><mi>-1</mi></msubsup>
+                </mtd> </mtr>
+            <mtr><mtd><mtext>Intuitively, for faster: </mtext></mtd><mtd><mtext> More mpg, more expensive time, Efficiency at higher speed in test run, and cheap gas</mtext></mtd></mtr>
+            </mtable>
+        </math>
+
+        <form>
+            <fieldset>
+            <legend>Enter Reference efficiency, Reference speed, Cost for fuel volume, and cost of your time </legend>
+            <p>
+                <label for="efficiency">Reference (MPG)</label>
+                <input type="number" id="efficiency" required step="0.1" min="0"/>
+            </p>
+            <p>
+                <label for="baseSpeed">Reference speed (MPH)</label>
+                <input type="number" id="baseSpeed" required step="1" min="0"/>
+            </p>
+            <p>
+                <label for="volumeCost">Cost(cents) / Gallon</label>
+                <input type="number" id="volumeCost" required step="0.01" min="0"/>
+            </p>
+            <p>
+                <label for="timeCost">Time Cost (cents)</label>
+                <input type="number" id="timeCost" required step="0.01" min="0"/>
+            </p>
+            </fieldset>
+            <p>
+                <button type="submit">Calculate</button>
+            </p>
+        </form>
+        <section id="optimalSpeed"></section>
+        <script>
+        const gasForm = document.getElementsByTagName("form")[0];
+        // Listen to form submissions. On each submit, new event happens
+        gasForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let mpg = document.getElementById("efficiency").value;
+            let baseSpeed = document.getElementById("baseSpeed").value;
+            let volumeCost = document.getElementById("volumeCost").value;
+            let timeCost = document.getElementById("timeCost").value;
+            let ans = mpg * 0.5 * timeCost * baseSpeed * baseSpeed / (volumeCost);
+            ans = ans ** (1/3);
+            ans = ans.toFixed(2);
+            document.getElementById("optimalSpeed").textContent = `The optimal speed to travel at is ${ans} MPH`;
+        });
+        </script>
+    </body>
+</html>
